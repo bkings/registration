@@ -1,0 +1,10 @@
+.DocumentRegV {
+  margin: 3px;
+  overflow-x: auto;
+}
+
+.Table {
+  width: 100%;
+  border: 2px solid black;
+  padding: 7px;
+}

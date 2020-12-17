@@ -1,0 +1,9 @@
+.Input {
+  margin: 15px;
+}
+
+.Label {
+  font-size: 1.1rem;
+  display: inline-block;
+  margin: 10px;
+}

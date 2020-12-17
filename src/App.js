@@ -1,25 +1,63 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import * as actionCreators from './store/actions/index';
+import Auth from './containers/Auth/Auth';
+import RegisterDocument from './containers/DocumentReg/DocumentReg';
+import Layout from './components/Layout/Layout';
+
+class App extends Component {
+
+  componentDidMount() {
+    this.props.checkAuthTimeout();
+  }
+
+  render() {
+    let routes = (
+      <div>
+        <Route exact path="/" component={Auth} />
+      </div>
+    );
+    if (this.props.isAuthenticated) {
+      routes = (
+        <div>
+          <Route exact path="/" component={Auth} />
+          <Route path="/register-document" component={RegisterDocument} />
+        </div>
+      )
+    }
+
+    let layout = null;
+    if (this.props.isAuthenticated) {
+      layout = (
+        <Layout isAuthenticated={this.props.isAuthenticated} className="App">
+          {routes}
+        </Layout>
+      )
+    } else {
+      layout = (
+        <div className="App">
+          {routes}
+        </div>
+      )
+    }
+
+    return layout;
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.authReducer.token != null
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    checkAuthTimeout: () => dispatch(actionCreators.authCheckBeforeLogin())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

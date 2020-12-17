@@ -1,0 +1,35 @@
+.Toolbar {
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  background-color: #f1f1f1;
+  position: fixed;
+  width: 240px;
+  overflow: auto;
+  padding-top: 5px;
+  transition: 0.5s;
+}
+
+.Open {
+  transform: translate(0);
+}
+
+.Close {
+  transform: translate(-240px);
+}
+
+@media (max-width: 700px) {
+  .Toolbar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .Open {
+    transform: translate(0);
+  }
+
+  .Close {
+    transform: translate(0);
+  }
+}
