@@ -155,7 +155,7 @@ class DocumentReg extends Component {
     }
 
     render() {
-        let error = <p style={{ color: "red" }}>{this.props.error ? this.props.error : null} </p>;
+        let error = <p style={{ color: "red", textAlign: "center" }}>{this.props.error ? this.props.error : null} </p>;
 
         const formElementArray = [];
         for (let key in this.state.regForm) {
@@ -180,16 +180,16 @@ class DocumentReg extends Component {
 
         return (
             <div className={classes.DocumentReg}>
-                <h2>Document Registration</h2>
+                <h2 style={{ textAlign: 'center', margin: "0" }}>Document Registration</h2>
                 {error}
                 <form id="reg-form" className={classes.Upper} onSubmit={this.onSubmitHandler}>
                     {form}
                     <Button>Save</Button>
                 </form>
-                <hr />
                 <div>
                     <h3>Data</h3>
                     <ViewDocReg
+                        viewType='RegisterDocument'
                         formKeys={this.state.regForm}
                         formData={this.props.registeredDocuments} />
                 </div>

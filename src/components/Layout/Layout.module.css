@@ -1,3 +1,14 @@
+.TopToggle {
+  width: 100%;
+  display: flex;
+}
+
+.TopToggle span {
+  margin-top: 5px;
+  margin-left: 15px;
+  font-size: 1.2rem;
+}
+
 .ContentOpen {
   margin-left: 240px;
   padding: 1px 16px;

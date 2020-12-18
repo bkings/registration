@@ -1,9 +1,17 @@
 .Input {
-  margin: 15px;
+  margin: 20px;
+}
+
+.Input input {
+  transition: border 0.1s ease-in;
 }
 
 .Label {
   font-size: 1.1rem;
   display: inline-block;
   margin: 10px;
+}
+
+.Input input:focus {
+  border: 1.5px solid rgb(0, 128, 111);
 }

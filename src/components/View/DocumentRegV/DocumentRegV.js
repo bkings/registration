@@ -2,22 +2,37 @@ import React from 'react';
 import classes from './DocumentRegV.module.css';
 
 const documentRegV = props => {
+    let regNo;
+    let formKeysArray = Object.keys(props.formKeys);
+    if (props.viewType === 'RegisterDocument') {
+        formKeysArray.unshift('regNo');
+    }
     let columnHeaders = Object.keys(props.formKeys).map(col => <th key={col}>{col.toUpperCase()}</th>);
-    let columnData = props.formData.map(data => {
+    let colData = props.formData.map(data => {
+        const tdata = (
+            formKeysArray.map(col => {
+                let tdVal = data[col];
+                if (props.viewType === 'RegisterDocument') {
+                    regNo = data.regNo;
+                    if (col === 'documentType') tdVal = data[col].docName;
+                }
+                return (
+                    <td key={col}>
+                        {
+                            tdVal
+                        }
+                    </td>
+                )
+            })
+        );
+
         return (
-            <tr key={data.regNo}>
-                <td>{data.regNo}</td>
-                <td>{data.fiscalYear}</td>
-                <td>{data.firstName}</td>
-                <td>{data.middleName}</td>
-                <td>{data.lastName}</td>
-                <td>{data.dateOfBirth}</td>
-                <td>{data.enterDate}</td>
-                <td>{data.documentType.docName}</td>
-                <td>{data.phone}</td>
+            <tr key={regNo}>
+                {tdata}
             </tr>
         )
-    })
+    });
+
     return (
         <div className={classes.DocumentRegV}>
             <table className={classes.Table}>
@@ -28,7 +43,7 @@ const documentRegV = props => {
                     </tr>
                 </thead>
                 <tbody>
-                    {columnData}
+                    {colData}
                 </tbody>
             </table>
         </div>

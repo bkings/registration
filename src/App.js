@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as actionCreators from './store/actions/index';
 import Auth from './containers/Auth/Auth';
 import RegisterDocument from './containers/DocumentReg/DocumentReg';
 import Layout from './components/Layout/Layout';
+import Logout from './containers/Auth/Logout/Logout';
+import DocumentType from './containers/Setup/DocumentType/DocumentType';
 
 class App extends Component {
 
@@ -16,16 +18,20 @@ class App extends Component {
 
   render() {
     let routes = (
-      <div>
+      <Switch>
         <Route exact path="/" component={Auth} />
-      </div>
+        <Redirect to="/" />
+      </Switch>
     );
     if (this.props.isAuthenticated) {
       routes = (
-        <div>
+        <Switch>
           <Route exact path="/" component={Auth} />
           <Route path="/register-document" component={RegisterDocument} />
-        </div>
+          <Route path="/document-type" component={DocumentType} />
+          <Route path="/logout" component={Logout} />
+          <Redirect to="/dashboard" />
+        </Switch>
       )
     }
 

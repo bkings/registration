@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import classes from './Layout.module.css';
+import Toggle from '../Navigation/DrawerToggle/DrawerToggle';
 
 class Layout extends Component {
     state = {
@@ -25,6 +26,10 @@ class Layout extends Component {
         }
         return (
             <div>
+                <div className={classes.TopToggle}>
+                    <Toggle toggle={this.toggleHandler} isOpen={this.state.toggle} />
+                    <span><strong>Registration</strong></span>
+                </div>
                 {toolbar}
                 <main className={assignedClass}>{this.props.children} </main>
             </div>

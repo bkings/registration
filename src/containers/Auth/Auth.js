@@ -72,7 +72,7 @@ class Auth extends Component {
         return (
             <div className={classes.Auth}>
                 {redirect}
-                <h3>Registration System | LOGIN</h3>
+                <h3 style={{paddingBottom:"10px",marginBottom:"25px"}}>Registration System | LOGIN</h3>
                 <form onSubmit={this.onSubmitHandler}>
                     {form}
                     <Button>Log In</Button>

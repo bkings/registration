@@ -1,6 +1,7 @@
 export {
     authenticate,
-    authCheckBeforeLogin
+    authCheckBeforeLogin,
+    authLogout
 } from './authAction';
 export {
     fetchData,
