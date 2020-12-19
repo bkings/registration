@@ -5,6 +5,7 @@ import { Redirect } from 'react-router';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import classes from './Auth.module.css';
+import Pic from '../../assets/images/reg.jpg';
 import * as actionCreators from '../../store/actions/index';
 
 class Auth extends Component {
@@ -68,15 +69,41 @@ class Auth extends Component {
         })
 
         let redirect = this.props.isAuthenticated ? <Redirect to='/register-document' /> : null;
-
+        let SplitLeft = [classes.Split, classes.Mini];
+        let SplitRight = [classes.Split, classes.Form];
+        let styleImage = {
+            "backgroundImage": "url(" + Pic + ")",
+            "backgroundRepeat": "no-repeat",
+            "backgroundPosition": "center",
+            "backgroundSize": "cover"
+        }
         return (
-            <div className={classes.Auth}>
+            <div>
                 {redirect}
-                <h3 style={{paddingBottom:"10px",marginBottom:"25px"}}>Registration System | LOGIN</h3>
-                <form onSubmit={this.onSubmitHandler}>
-                    {form}
-                    <Button>Log In</Button>
-                </form>
+                <div style={styleImage} className={SplitLeft.join(' ')}>
+                    Mini-Brochure
+                </div>
+                <div className={SplitRight.join(' ')}>
+                    <div className={classes.ForSpan}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div className={classes.Auth}>
+                        <h3 style={{ paddingBottom: "10px", marginBottom: "25px", fontFamily: "consolas", letterSpacing: "5px" }}>Registration System | LOGIN</h3>
+                        <form onSubmit={this.onSubmitHandler}>
+                            {form}
+                            <Button>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                        Log In
+                    </Button>
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }

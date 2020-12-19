@@ -1,10 +1,66 @@
+.Split {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.Form {
+  width: 45%;
+  right: 0;
+  padding: 7% 0;
+}
+
+.Form .ForSpan span {
+  display: block;
+  position: absolute;
+}
+
+.Form .ForSpan span:nth-child(2) {
+  right: 0;
+  top: -100%;
+  height: 100%;
+  width: 5px;
+  background: linear-gradient(180deg, transparent, #2196f3);
+  border-radius: 18px;
+}
+
+.Form:hover .ForSpan span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.Form .ForSpan span:nth-child(4) {
+  left: 0;
+  bottom: -100%;
+  height: 100%;
+  width: 5px;
+  background: linear-gradient(360deg, transparent, #2196f3);
+  border-radius: 18px;
+}
+
+.Form:hover .ForSpan span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+}
+
 .Auth {
-  width: 35%;
+  width: 90%;
   margin: auto;
-  margin-top: 200px;
-  border: 1px solid rgb(158, 144, 144);
-  border-radius: 8px;
-  padding: 50px;
+  padding: 150px 0;
+  /* border-radius: 15px;
+  background: #031321;
+  color: whitesmoke; */
+}
+
+.Mini {
+  width: 55%;
+  /* background: #2196f3; */
+  /* padding: 30px; */
+  left: 0;
 }
 
 .Auth Input {
@@ -16,14 +72,87 @@
 }
 
 .Auth Button {
-  padding: 10px 25px;
-  cursor: pointer;
   border: none;
+  background: transparent;
   border-radius: 7px;
-  background-color: rgb(155, 221, 226);
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding: 10px 28px;
+  color: #2196f3;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  overflow: hidden;
+  transition: 0.2s;
+  font-family: consolas;
 }
 
 .Auth Button:hover {
-  background-color: rgb(45, 97, 133);
+  /* color: #255784; */
   color: white;
+  background: #2196f3;
+  box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+  transition-delay: 1.5s;
+}
+
+.Auth Button span {
+  display: block;
+  position: absolute;
+}
+
+.Auth Button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2196f3);
+}
+
+.Auth Button:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+
+.Auth Button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #2196f3);
+}
+
+.Auth Button:hover span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+
+.Auth Button span:nth-child(2) {
+  right: 0;
+  top: -100%;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #2196f3);
+}
+
+.Auth Button:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+
+.Auth Button span:nth-child(4) {
+  left: 0;
+  bottom: -100%;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(360deg, transparent, #2196f3);
+}
+
+.Auth Button:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 1s;
 }
