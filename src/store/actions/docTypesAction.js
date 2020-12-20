@@ -60,6 +60,25 @@ const registerFail = error => {
     }
 }
 
+const saveDocTypeInit = () => {
+    return {
+        type: actionTypes.SAVE_DOCTYPE_INIT
+    }
+}
+
+const saveDocTypeSuccess = () => {
+    return {
+        type: actionTypes.SAVE_DOCTYPE_SUCCESS
+    }
+}
+
+const saveDocTypeFail = error => {
+    return {
+        type: actionTypes.SAVE_DOCTYPE_FAIL,
+        error
+    }
+}
+
 export const fetchData = token => {
     return dispatch => {
         axios.defaults.headers.common['x-token'] = token;
@@ -102,6 +121,22 @@ export const registerPost = (token, regData) => {
             })
             .catch(err => {
                 dispatch(registerFail(err.response.data.error));
+            })
+    }
+}
+
+export const docTypePost = (token, docTypeData) => {
+    return dispatch => {
+        axios.defaults.headers.common['x-token'] = token;
+        dispatch(saveDocTypeInit());
+        axios
+            .post('/documentType', docTypeData)
+            .then(res => {
+                dispatch(saveDocTypeSuccess());
+                dispatch(fetchData(token));
+            })
+            .catch(err => {
+                dispatch(saveDocTypeFail(err.response.data.error));
             })
     }
 }

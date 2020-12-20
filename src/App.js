@@ -10,6 +10,8 @@ import Layout from './components/Layout/Layout';
 import Logout from './containers/Auth/Logout/Logout';
 import DocumentType from './containers/Setup/DocumentType/DocumentType';
 
+import Footer from './components/UI/Footer/Footer';
+
 class App extends Component {
 
   componentDidMount() {
@@ -40,12 +42,14 @@ class App extends Component {
       layout = (
         <Layout isAuthenticated={this.props.isAuthenticated} className="App">
           {routes}
+          <Footer />
         </Layout>
       )
     } else {
       layout = (
         <div className="App">
           {routes}
+          <Footer />
         </div>
       )
     }

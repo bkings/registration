@@ -8,6 +8,9 @@ import classes from './Auth.module.css';
 import Pic from '../../assets/images/reg.jpg';
 import * as actionCreators from '../../store/actions/index';
 
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import Spinner from '../../components/UI/Spinner/Spinner';
+
 class Auth extends Component {
 
     state = {
@@ -73,16 +76,44 @@ class Auth extends Component {
         let SplitRight = [classes.Split, classes.Form];
         let styleImage = {
             "backgroundImage": "url(" + Pic + ")",
-            "backgroundRepeat": "no-repeat",
             "backgroundPosition": "center",
-            "backgroundSize": "cover"
+            "backgroundSize": "cover",
+            "filter": "contrast(140%)",
+            "color": "white"
         }
+
+        let button = (
+            <Button>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                        Log In
+            </Button>
+        )
+        if (this.props.loading) {
+            button = <Spinner />;
+        }
+
         return (
             <div>
                 {redirect}
                 <div style={styleImage} className={SplitLeft.join(' ')}>
-                    Mini-Brochure
+                    <h2 style={{ fontFamily: "consolas", letterSpacing: "4px", fontSize: "2rem" }}>Welcome to Online Registration System !</h2>
+                    <p style={{
+                        fontFamily: "consolas",
+                        letterSpacing: "3px",
+                        position: "absolute",
+                        top: "15%",
+                        left: "17%",
+                        padding: "50px",
+                        fontSize: "22px",
+                        width: "80%",
+                        margin: "auto",
+                        textAlign: "left"
+                    }}>&gt; Register all your documents without any hassle.<br />&gt; Passports, License, Citizenship and many more.<br />&gt; No more paper works. No more middle man.</p>
                 </div>
+                <Backdrop />
                 <div className={SplitRight.join(' ')}>
                     <div className={classes.ForSpan}>
                         <span></span>
@@ -94,13 +125,7 @@ class Auth extends Component {
                         <h3 style={{ paddingBottom: "10px", marginBottom: "25px", fontFamily: "consolas", letterSpacing: "5px" }}>Registration System | LOGIN</h3>
                         <form onSubmit={this.onSubmitHandler}>
                             {form}
-                            <Button>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                        Log In
-                    </Button>
+                            {button}
                         </form>
                     </div>
                 </div>

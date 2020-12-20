@@ -59,6 +59,22 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 error: action.error
             }
+        case actionTypes.SAVE_DOCTYPE_INIT:
+            return {
+                ...state,
+                loading: true
+            }
+        case actionTypes.SAVE_DOCTYPE_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
+        case actionTypes.SAVE_DOCTYPE_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
         default:
             return state;
     }

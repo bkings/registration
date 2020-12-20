@@ -7,7 +7,7 @@ const documentRegV = props => {
     if (props.viewType === 'RegisterDocument') {
         formKeysArray.unshift('regNo');
     }
-    let columnHeaders = Object.keys(props.formKeys).map(col => <th key={col}>{col.toUpperCase()}</th>);
+    let columnHeaders = formKeysArray.map(col => <th key={col}>{col.toUpperCase()}</th>);
     let colData = props.formData.map(data => {
         const tdata = (
             formKeysArray.map(col => {
@@ -38,7 +38,6 @@ const documentRegV = props => {
             <table className={classes.Table}>
                 <thead>
                     <tr>
-                        <th>REGISTRATION NO.</th>
                         {columnHeaders}
                     </tr>
                 </thead>

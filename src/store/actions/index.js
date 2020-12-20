@@ -6,7 +6,8 @@ export {
 export {
     fetchData,
     fetchRegData,
-    registerPost
+    registerPost,
+    docTypePost
 } from './docTypesAction';
 export {
     fetchFy
