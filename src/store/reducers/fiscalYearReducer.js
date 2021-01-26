@@ -25,6 +25,23 @@ const reducer = (state = initialState, action) => {
                 loading: false,
                 error: action.error
             }
+        case actionTypes.SAVE_FY_INIT:
+            return {
+                ...state,
+                loading: true
+            }
+        case actionTypes.SAVE_FY_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                fiscalYear: state.fiscalYear.concat(action.fyData)
+            }
+        case actionTypes.SAVE_FY_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.err
+            }
         default:
             return state;
     }

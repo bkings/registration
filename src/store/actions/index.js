@@ -10,5 +10,6 @@ export {
     docTypePost
 } from './docTypesAction';
 export {
-    fetchFy
+    fetchFy,
+    postFY
 } from './fiscalYearAction';

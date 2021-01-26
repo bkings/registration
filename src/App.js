@@ -9,6 +9,7 @@ import RegisterDocument from './containers/DocumentReg/DocumentReg';
 import Layout from './components/Layout/Layout';
 import Logout from './containers/Auth/Logout/Logout';
 import DocumentType from './containers/Setup/DocumentType/DocumentType';
+import FiscalYear from './containers/Setup/Fiscalyear/FiscalYear';
 
 import Footer from './components/UI/Footer/Footer';
 
@@ -31,6 +32,7 @@ class App extends Component {
           <Route exact path="/" component={Auth} />
           <Route path="/register-document" component={RegisterDocument} />
           <Route path="/document-type" component={DocumentType} />
+          <Route path="/fiscal-year" component={FiscalYear} />
           <Route path="/logout" component={Logout} />
           <Redirect to="/dashboard" />
         </Switch>

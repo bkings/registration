@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import authReducer from './store/reducers/authReducer';
 import docTypesReducer from './store/reducers/docTypesReducer';
 import fiscalYearReducer from './store/reducers/fiscalYearReducer';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -25,9 +25,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <HashRouter>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </HashRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

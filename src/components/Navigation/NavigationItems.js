@@ -8,7 +8,7 @@ const navigationItems = props => {
         <ul className={classes.NavigationItems}>
             <NavigationItem link="">Dashboard</NavigationItem>
             <NavigationItem link="">Setup</NavigationItem>
-            <NavigationItem link="">Fiscal Year</NavigationItem>
+            <NavigationItem link="/fiscal-year">Fiscal Year</NavigationItem>
             <NavigationItem link="/document-type">Document Type</NavigationItem>
             <NavigationItem link="/register-document">Register Documents</NavigationItem>
             <NavigationItem link="/logout">Logout</NavigationItem>
