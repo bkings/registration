@@ -25,11 +25,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
-        <BrowserRouter>
+      <BrowserRouter>
+        <HashRouter>
           <App />
-        </BrowserRouter>
-      </HashRouter>
+        </HashRouter>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

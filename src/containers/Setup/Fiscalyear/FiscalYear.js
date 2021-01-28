@@ -3,6 +3,7 @@ import Input from '../../../components/UI/Input/Input';
 import { connect } from 'react-redux';
 
 import classes from './FiscalYear.module.css';
+import Button from '../../../components/UI/Button/Button';
 import ViewDocReg from '../../../components/View/DocumentRegV/DocumentRegV';
 import * as actionCreators from '../../../store/actions/index';
 
@@ -53,6 +54,7 @@ class FiscalYear extends Component {
             <div className={classes.FiscalYear}>
                 <form className={classes.Upper}>
                     {form}
+                    <Button>Save</Button>
                 </form>
                 <br />
                 <div>
