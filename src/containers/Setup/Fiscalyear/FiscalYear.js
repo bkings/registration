@@ -47,8 +47,7 @@ class FiscalYear extends Component {
                 key={formEl.id}
                 inputElementType={formEl.formElement.elementType}
                 elementConfig={formEl.formElement.elementConfig}
-                label={formEl.formElement.label}
-            />
+                label={formEl.formElement.label} />
         ));
         return (
             <div className={classes.FiscalYear}>
